@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SAVE DAT CASH MONEY HONEY</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container jumbotron">
+      <h1>Shellenberger Monthly Budget</h1>
+      <table>
+        <th>Category</th>
+        <th>Budgeted</th>
+        <th>Spent</th>
+        <th>New Expense</th>
+        {% for i in stuff %}
+        <tr>
+          <td>{{i.top_name}}</td>
+          <td>{{i.budgeted}}</td>
+          <td>{{i.actual}}</td>
+          <td><form class="" method="post">
+            <input type="text" name="" value="">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-primary" value="Submit">
+          </form></td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      <h5>Add a new category</h5>
+      <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="Submit">
+      </form>
+    </div>
+
+  </body>
+</html>
